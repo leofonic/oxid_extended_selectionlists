@@ -60,10 +60,10 @@ class extended_selectionlists_oxselection extends extended_selectionlists_oxsele
         }
         if (count($aPrices)){
             $sPrice = '';
-            $sPricePrefix = oxLang::getInstance()->translateString('PRICE_FROM').' ';
+            $sPricePrefix = oxRegistry::getLang()->translateString('PRICE_FROM').' ';
             if (count($aPrices) > 1) $sPrice = $sPricePrefix.' ';
             $sPrice .= oxRegistry::getLang()->formatCurrency(min($aPrices));
-            $sPrice .= ' '.oxRegistry::getConfig()->getActShopCurrencyObject()->sign;;
+            $sPrice .= ' '.oxRegistry::getConfig()->getActShopCurrencyObject()->sign;
             return $sPrice;
         }
     }
