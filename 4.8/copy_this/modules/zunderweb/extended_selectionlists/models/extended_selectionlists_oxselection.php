@@ -67,4 +67,15 @@ class extended_selectionlists_oxselection extends extended_selectionlists_oxsele
             return $sPrice;
         }
     }
+    
+    //Returns Stock Status if single article
+    public function getStockStatus(){
+        if (count($this->_aArticleIds) == 1){
+            foreach ( $this->_aArticleIds as $sKey => $sArticleId ){
+                if ( $oArticle = $this->getArticle( $sKey ) ){
+                    return $oArticle->getStockStatus();
+                }
+            }            
+        }
+    }
 }
